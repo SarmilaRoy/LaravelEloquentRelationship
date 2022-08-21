@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Phone;
+use App\Models\Post;
+use App\Models\Comment;
 
 
 Route::get('/', function () {
@@ -17,6 +19,27 @@ Route::get('/', function () {
     $users=User::all();
     $phones=Phone::all();
     //return $users;
-    return view('welcome',compact('phones'));
+
+
+    //one to many
+
+    $comments=Post::find(1);
+    $comments=Post::find(1)->comments;
+     //return $comments;
+
+    $post=Comment::find(1);
+    $post=Comment::find(5)->post;
+    //return $post;
+
+    //$post=Post::all();
+    $post=Post::with('comments')->get();
+    $comments=Comment::all();
+    //echo '<pre>';
+   // print_r($post);
+    //return $post;
+
+
+
+    return view('welcome',compact('comments'));
 
 });

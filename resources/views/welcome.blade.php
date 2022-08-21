@@ -14,17 +14,32 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Phone</th>     
+                            {{-- <th>Name</th>
+                            <th>Phone</th>      --}}
+                            {{-- <th>Title</th>
+                            <th>Comments</th>   --}}
+                            <th>Comments</th>
+                            <th>Title</th> 
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($phones as $data)
+                        {{-- @foreach ($phones as $data) --}}
+                        {{-- @foreach ($post as $data) --}}
+                        @foreach ($comments as $data)
                         <tr>
                             {{-- <td>{{ $data->name }}</td>
                             <td>{{ $data->phone->name }}</td> --}}
-                            <td>{{ $data->user->name }}</td>
-                            <td>{{ $data->name }}</td>
+                            {{-- <td>{{ $data->user->name }}</td>
+                            <td>{{ $data->name }}</td> --}}
+                            {{-- <td>{{ $data->title }}</td>
+                            <td>
+                                @foreach ($data->comments as $cmt)
+                                    {{ $cmt->message }}
+                                @endforeach
+                            </td> --}}
+
+                            <td>{{ $data->message }}</td>
+                            <td>{{ $data->post->title }}</td>
                         </tr>
                         @endforeach
                     </tbody>
