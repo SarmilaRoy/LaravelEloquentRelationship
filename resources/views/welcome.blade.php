@@ -19,10 +19,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($phones as $data)
                         <tr>
-                            <td></td>
-                            <td></td>
+                            {{-- <td>{{ $data->name }}</td>
+                            <td>{{ $data->phone->name }}</td> --}}
+                            <td>{{ $data->user->name }}</td>
+                            <td>{{ $data->name }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
