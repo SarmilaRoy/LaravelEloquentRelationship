@@ -18,14 +18,25 @@
                             <th>Phone</th>      --}}
                             {{-- <th>Title</th>
                             <th>Comments</th>   --}}
-                            <th>Comments</th>
+                            {{-- <th>Comments</th>
+                            <th>Title</th>  --}}
+
+                            
+                            {{-- <th>Title</th> 
+                            <th>Category</th> --}}
+
+                            <th>Category</th>
                             <th>Title</th> 
+                            
                         </tr>
                     </thead>
                     <tbody>
                         {{-- @foreach ($phones as $data) --}}
                         {{-- @foreach ($post as $data) --}}
-                        @foreach ($comments as $data)
+                        {{-- @foreach ($comments as $data) --}}
+                        {{-- @foreach ($posts as $data) --}}
+
+                        @foreach ($categories as $data)
                         <tr>
                             {{-- <td>{{ $data->name }}</td>
                             <td>{{ $data->phone->name }}</td> --}}
@@ -38,8 +49,16 @@
                                 @endforeach
                             </td> --}}
 
-                            <td>{{ $data->message }}</td>
-                            <td>{{ $data->post->title }}</td>
+                            {{-- <td>{{ $data->message }}</td>
+                            <td>{{ $data->post->title }}</td> --}}
+
+                            <td>{{ $data->name }}</td>
+                            <td>
+                                @foreach ($data->posts as $post)
+                                {{ $post->title }}
+                                @endforeach
+                                
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
